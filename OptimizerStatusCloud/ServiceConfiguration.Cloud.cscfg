@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="OptimizerStatusCloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WebRole1">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=azurehost1;AccountKey=PTRDEkNVgY0bpOhh695Ld8Dvo/yIdpQQvQBzMV7ac8elprRSmK2O5it28qQAQ80e9Dl5fM7TlTlYqxGLn6w+Ng==" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="2fb44fa5-3ccd-4e8b-917e-98ef3c47d691" />
+    </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

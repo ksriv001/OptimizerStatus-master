@@ -1,0 +1,85 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="WebRole1.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />     
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" /> 
+    <asp:PlaceHolder runat="server">        
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.5.3.js") %>"></script>
+    </asp:PlaceHolder>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+
+        
+
+<body>
+    <form runat="server">
+   <%-- <asp:ScriptManager runat="server">
+        <Scripts>
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" />
+        </Scripts>
+    </asp:ScriptManager>--%>
+
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+            </asp:ScriptReference>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+            </asp:ScriptReference>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+            </asp:ScriptReference>
+        </Scripts>
+    </telerik:RadScriptManager>
+
+
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">Coastal Aviation Software</p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        
+                       
+                    </asp:LoginView>
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/Flights.aspx">Flights</a></li>
+                        <li><a id="A1" runat="server" href="~/FlightTime.aspx">Flight Time</a></li>
+                        <li><a id="A2" runat="server" href="~/Availability.aspx">Availability</a></li>
+                        <li><a id="A3" runat="server" href="~/ReportModel.aspx">Report Model</a></li>
+                        <li><a id="A4" runat="server" href="~/Login.aspx">Log Out</a></li>
+                        <li><a id="A5" runat="server" href="~/FlightData.aspx">Flight Data</a></li>
+                          <li><a id="A6" runat="server" href="~/ModelDebug.aspx">Model Analysis</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>
+                    &copy; <%: DateTime.Now.Year %> - CAS 2012
+                </p>
+            </div>
+        </div>
+    </footer>
+    </form>
+</body>
+</html>

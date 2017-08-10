@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="services" targetNamespace="urn:services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types xmlns="http://schemas.xmlsoap.org/wsdl/" />
+  <wsdl:message name="QuickPathRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="quickPathCommand" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="QuickPathResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="MapRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="mapName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="MapResponse">
+    <wsdl:part name="map" type="xsd:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="MapSetRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="mapSetName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="MapSetResponse">
+    <wsdl:part name="maps" type="xsd:struct" />
+  </wsdl:message>
+  <wsdl:message name="extDecodeRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="decodeData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="extDecodeResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="extEncodeRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="encodeData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="extEncodeResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="faaContractionsLookupRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="lookupData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="faaContractionsLookupResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="closeVFRRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="actype" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destfiled" type="xsd:string" />
+    <wsdl:part name="destactual" type="xsd:string" />
+    <wsdl:part name="remarks" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="closeVFRResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fileFAARequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="fptype" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="numofac" type="xsd:string" />
+    <wsdl:part name="actype" type="xsd:string" />
+    <wsdl:part name="equipment" type="xsd:string" />
+    <wsdl:part name="airspeed" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destination" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="route" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="fob" type="xsd:string" />
+    <wsdl:part name="alternate" type="xsd:string" />
+    <wsdl:part name="homebase" type="xsd:string" />
+    <wsdl:part name="pax" type="xsd:string" />
+    <wsdl:part name="color" type="xsd:string" />
+    <wsdl:part name="pilotaddress" type="xsd:string" />
+    <wsdl:part name="pilotphonenumber" type="xsd:string" />
+    <wsdl:part name="remarks" type="xsd:string" />
+    <wsdl:part name="heavy" type="xsd:string" />
+    <wsdl:part name="fpack" type="xsd:string" />
+    <wsdl:part name="fpackemail" type="xsd:string" />
+    <wsdl:part name="destname" type="xsd:string" />
+    <wsdl:part name="destphonenumber" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fileFAAResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fileICAORequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="fptype" type="xsd:string" />
+    <wsdl:part name="typeofflight" type="xsd:string" />
+    <wsdl:part name="domesticICAO" type="xsd:string" />
+    <wsdl:part name="numofac" type="xsd:string" />
+    <wsdl:part name="actype" type="xsd:string" />
+    <wsdl:part name="wak" type="xsd:string" />
+    <wsdl:part name="equipment" type="xsd:string" />
+    <wsdl:part name="icaossr" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destination" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="route" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="fob" type="xsd:string" />
+    <wsdl:part name="alternate" type="xsd:string" />
+    <wsdl:part name="pax" type="xsd:string" />
+    <wsdl:part name="color" type="xsd:string" />
+    <wsdl:part name="airspeed" type="xsd:string" />
+    <wsdl:part name="remarks" type="xsd:string" />
+    <wsdl:part name="emgradio" type="xsd:string" />
+    <wsdl:part name="surviveequip" type="xsd:string" />
+    <wsdl:part name="jackets" type="xsd:string" />
+    <wsdl:part name="dinghies" type="xsd:string" />
+    <wsdl:part name="dinghiescap" type="xsd:string" />
+    <wsdl:part name="dinghiescovered" type="xsd:string" />
+    <wsdl:part name="dinghiescolor" type="xsd:string" />
+    <wsdl:part name="safetyremarks" type="xsd:string" />
+    <wsdl:part name="pilotname" type="xsd:string" />
+    <wsdl:part name="pilotaddress" type="xsd:string" />
+    <wsdl:part name="pilotphonenumber" type="xsd:string" />
+    <wsdl:part name="fpack" type="xsd:string" />
+    <wsdl:part name="fpackemail" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fileICAOResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fileICAO2012Request">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="fptype" type="xsd:string" />
+    <wsdl:part name="typeofflight" type="xsd:string" />
+    <wsdl:part name="numofac" type="xsd:string" />
+    <wsdl:part name="actype" type="xsd:string" />
+    <wsdl:part name="wak" type="xsd:string" />
+    <wsdl:part name="equipment" type="xsd:string" />
+    <wsdl:part name="icaossr" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destination" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="route" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="fob" type="xsd:string" />
+    <wsdl:part name="alternate" type="xsd:string" />
+    <wsdl:part name="pax" type="xsd:string" />
+    <wsdl:part name="color" type="xsd:string" />
+    <wsdl:part name="airspeed" type="xsd:string" />
+    <wsdl:part name="remarks" type="xsd:string" />
+    <wsdl:part name="emgradio" type="xsd:string" />
+    <wsdl:part name="surviveequip" type="xsd:string" />
+    <wsdl:part name="jackets" type="xsd:string" />
+    <wsdl:part name="dinghies" type="xsd:string" />
+    <wsdl:part name="dinghiescap" type="xsd:string" />
+    <wsdl:part name="dinghiescovered" type="xsd:string" />
+    <wsdl:part name="dinghiescolor" type="xsd:string" />
+    <wsdl:part name="safetyremarks" type="xsd:string" />
+    <wsdl:part name="pilotname" type="xsd:string" />
+    <wsdl:part name="pilotaddress" type="xsd:string" />
+    <wsdl:part name="pilotphonenumber" type="xsd:string" />
+    <wsdl:part name="fpack" type="xsd:string" />
+    <wsdl:part name="fpackemail" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fileICAO2012Response">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxStdLoRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destination" type="xsd:string" />
+    <wsdl:part name="alternate" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="route" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="wxwidth" type="xsd:string" />
+    <wsdl:part name="wawidth" type="xsd:string" />
+    <wsdl:part name="atcadv" type="xsd:string" />
+    <wsdl:part name="nafdc" type="xsd:string" />
+    <wsdl:part name="hurricane" type="xsd:string" />
+    <wsdl:part name="plainlanguage" type="xsd:string" />
+    <wsdl:part name="plaintimezone" type="xsd:string" />
+    <wsdl:part name="adversewx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxStdLoResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxStdHiRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destination" type="xsd:string" />
+    <wsdl:part name="alternate" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="route" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="wxwidth" type="xsd:string" />
+    <wsdl:part name="wawidth" type="xsd:string" />
+    <wsdl:part name="atcadv" type="xsd:string" />
+    <wsdl:part name="nafdc" type="xsd:string" />
+    <wsdl:part name="hurricane" type="xsd:string" />
+    <wsdl:part name="plainlanguage" type="xsd:string" />
+    <wsdl:part name="plaintimezone" type="xsd:string" />
+    <wsdl:part name="adversewx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxStdHiResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxStdAreaRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="radius" type="xsd:string" />
+    <wsdl:part name="atcadv" type="xsd:string" />
+    <wsdl:part name="nafdc" type="xsd:string" />
+    <wsdl:part name="hurricane" type="xsd:string" />
+    <wsdl:part name="plainlanguage" type="xsd:string" />
+    <wsdl:part name="plaintimezone" type="xsd:string" />
+    <wsdl:part name="adversewx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxStdAreaResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxOutRouteRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destination" type="xsd:string" />
+    <wsdl:part name="alternate" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="route" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="wxwidth" type="xsd:string" />
+    <wsdl:part name="atcadv" type="xsd:string" />
+    <wsdl:part name="nafdc" type="xsd:string" />
+    <wsdl:part name="hurricane" type="xsd:string" />
+    <wsdl:part name="metar" type="xsd:string" />
+    <wsdl:part name="pilotrpt" type="xsd:string" />
+    <wsdl:part name="radar" type="xsd:string" />
+    <wsdl:part name="winds" type="xsd:string" />
+    <wsdl:part name="plainlanguage" type="xsd:string" />
+    <wsdl:part name="plaintimezone" type="xsd:string" />
+    <wsdl:part name="adversewx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxOutRouteResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxOutAreaRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="radius" type="xsd:string" />
+    <wsdl:part name="atcadv" type="xsd:string" />
+    <wsdl:part name="nafdc" type="xsd:string" />
+    <wsdl:part name="hurricane" type="xsd:string" />
+    <wsdl:part name="metar" type="xsd:string" />
+    <wsdl:part name="pilotrpt" type="xsd:string" />
+    <wsdl:part name="radar" type="xsd:string" />
+    <wsdl:part name="winds" type="xsd:string" />
+    <wsdl:part name="plainlanguage" type="xsd:string" />
+    <wsdl:part name="plaintimezone" type="xsd:string" />
+    <wsdl:part name="adversewx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxOutAreaResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxAbbrvRouteRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destination" type="xsd:string" />
+    <wsdl:part name="alternate" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="route" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="wxwidth" type="xsd:string" />
+    <wsdl:part name="wawidth" type="xsd:string" />
+    <wsdl:part name="atcadv" type="xsd:string" />
+    <wsdl:part name="nafdc" type="xsd:string" />
+    <wsdl:part name="hurricane" type="xsd:string" />
+    <wsdl:part name="plainlanguage" type="xsd:string" />
+    <wsdl:part name="plaintimezone" type="xsd:string" />
+    <wsdl:part name="adversewx" type="xsd:string" />
+    <wsdl:part name="metar" type="xsd:string" />
+    <wsdl:part name="metartrend" type="xsd:string" />
+    <wsdl:part name="taf" type="xsd:string" />
+    <wsdl:part name="winds" type="xsd:string" />
+    <wsdl:part name="pilotrpt" type="xsd:string" />
+    <wsdl:part name="radar" type="xsd:string" />
+    <wsdl:part name="fdc" type="xsd:string" />
+    <wsdl:part name="notam" type="xsd:string" />
+    <wsdl:part name="areaforcast" type="xsd:string" />
+    <wsdl:part name="sigmet" type="xsd:string" />
+    <wsdl:part name="airmet" type="xsd:string" />
+    <wsdl:part name="convsigmet" type="xsd:string" />
+    <wsdl:part name="severewx" type="xsd:string" />
+    <wsdl:part name="cwa" type="xsd:string" />
+    <wsdl:part name="swfa" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxAbbrvRouteResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxAbbrvLocationRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="locations" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="atcadv" type="xsd:string" />
+    <wsdl:part name="nafdc" type="xsd:string" />
+    <wsdl:part name="hurricane" type="xsd:string" />
+    <wsdl:part name="plainlanguage" type="xsd:string" />
+    <wsdl:part name="plaintimezone" type="xsd:string" />
+    <wsdl:part name="adversewx" type="xsd:string" />
+    <wsdl:part name="metar" type="xsd:string" />
+    <wsdl:part name="metartrend" type="xsd:string" />
+    <wsdl:part name="taf" type="xsd:string" />
+    <wsdl:part name="winds" type="xsd:string" />
+    <wsdl:part name="pilotrpt" type="xsd:string" />
+    <wsdl:part name="radar" type="xsd:string" />
+    <wsdl:part name="fdc" type="xsd:string" />
+    <wsdl:part name="notam" type="xsd:string" />
+    <wsdl:part name="areaforcast" type="xsd:string" />
+    <wsdl:part name="sigmet" type="xsd:string" />
+    <wsdl:part name="airmet" type="xsd:string" />
+    <wsdl:part name="convsigmet" type="xsd:string" />
+    <wsdl:part name="severewx" type="xsd:string" />
+    <wsdl:part name="cwa" type="xsd:string" />
+    <wsdl:part name="swfa" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxAbbrvLocationResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxAbbrvRadiusRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="locations" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="radius" type="xsd:string" />
+    <wsdl:part name="atcadv" type="xsd:string" />
+    <wsdl:part name="nafdc" type="xsd:string" />
+    <wsdl:part name="hurricane" type="xsd:string" />
+    <wsdl:part name="plainlanguage" type="xsd:string" />
+    <wsdl:part name="plaintimezone" type="xsd:string" />
+    <wsdl:part name="adversewx" type="xsd:string" />
+    <wsdl:part name="metar" type="xsd:string" />
+    <wsdl:part name="metartrend" type="xsd:string" />
+    <wsdl:part name="taf" type="xsd:string" />
+    <wsdl:part name="winds" type="xsd:string" />
+    <wsdl:part name="pilotrpt" type="xsd:string" />
+    <wsdl:part name="radar" type="xsd:string" />
+    <wsdl:part name="fdc" type="xsd:string" />
+    <wsdl:part name="notam" type="xsd:string" />
+    <wsdl:part name="areaforcast" type="xsd:string" />
+    <wsdl:part name="sigmet" type="xsd:string" />
+    <wsdl:part name="airmet" type="xsd:string" />
+    <wsdl:part name="convsigmet" type="xsd:string" />
+    <wsdl:part name="severewx" type="xsd:string" />
+    <wsdl:part name="cwa" type="xsd:string" />
+    <wsdl:part name="swfa" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxAbbrvRadiusResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxAbbrvStColRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="deptime" type="xsd:string" />
+    <wsdl:part name="tailnumber" type="xsd:string" />
+    <wsdl:part name="locations" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="ete" type="xsd:string" />
+    <wsdl:part name="atcadv" type="xsd:string" />
+    <wsdl:part name="nafdc" type="xsd:string" />
+    <wsdl:part name="hurricane" type="xsd:string" />
+    <wsdl:part name="plainlanguage" type="xsd:string" />
+    <wsdl:part name="plaintimezone" type="xsd:string" />
+    <wsdl:part name="adversewx" type="xsd:string" />
+    <wsdl:part name="metar" type="xsd:string" />
+    <wsdl:part name="metartrend" type="xsd:string" />
+    <wsdl:part name="taf" type="xsd:string" />
+    <wsdl:part name="winds" type="xsd:string" />
+    <wsdl:part name="pilotrpt" type="xsd:string" />
+    <wsdl:part name="radar" type="xsd:string" />
+    <wsdl:part name="fdc" type="xsd:string" />
+    <wsdl:part name="notam" type="xsd:string" />
+    <wsdl:part name="areaforcast" type="xsd:string" />
+    <wsdl:part name="sigmet" type="xsd:string" />
+    <wsdl:part name="airmet" type="xsd:string" />
+    <wsdl:part name="convsigmet" type="xsd:string" />
+    <wsdl:part name="severewx" type="xsd:string" />
+    <wsdl:part name="cwa" type="xsd:string" />
+    <wsdl:part name="swfa" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="wxAbbrvStColResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="hourlyPlannerRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destination" type="xsd:string" />
+    <wsdl:part name="route" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="depTime" type="xsd:string" />
+    <wsdl:part name="outputFormat" type="xsd:string" />
+    <wsdl:part name="latLongFormat" type="xsd:string" />
+    <wsdl:part name="additionalWaypoints" type="xsd:string" />
+    <wsdl:part name="units" type="xsd:string" />
+    <wsdl:part name="climbAirspeed" type="xsd:string" />
+    <wsdl:part name="climbRate" type="xsd:string" />
+    <wsdl:part name="cruiseAirspeed" type="xsd:string" />
+    <wsdl:part name="descentAirspeed" type="xsd:string" />
+    <wsdl:part name="descentRate" type="xsd:string" />
+    <wsdl:part name="hourOne" type="xsd:string" />
+    <wsdl:part name="hourTwo" type="xsd:string" />
+    <wsdl:part name="hourThree" type="xsd:string" />
+    <wsdl:part name="hourFour" type="xsd:string" />
+    <wsdl:part name="hourFive" type="xsd:string" />
+    <wsdl:part name="hourSix" type="xsd:string" />
+    <wsdl:part name="hourSeven" type="xsd:string" />
+    <wsdl:part name="hourEight" type="xsd:string" />
+    <wsdl:part name="hourNine" type="xsd:string" />
+    <wsdl:part name="hourTen" type="xsd:string" />
+    <wsdl:part name="profileName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="hourlyPlannerResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="segmentPlannerRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="departure" type="xsd:string" />
+    <wsdl:part name="destination" type="xsd:string" />
+    <wsdl:part name="route" type="xsd:string" />
+    <wsdl:part name="altitude" type="xsd:string" />
+    <wsdl:part name="depTime" type="xsd:string" />
+    <wsdl:part name="outputFormat" type="xsd:string" />
+    <wsdl:part name="latLongFormat" type="xsd:string" />
+    <wsdl:part name="additionalWaypoints" type="xsd:string" />
+    <wsdl:part name="units" type="xsd:string" />
+    <wsdl:part name="climbAirspeed" type="xsd:string" />
+    <wsdl:part name="climbRate" type="xsd:string" />
+    <wsdl:part name="cruiseAirspeed" type="xsd:string" />
+    <wsdl:part name="descentAirspeed" type="xsd:string" />
+    <wsdl:part name="descentRate" type="xsd:string" />
+    <wsdl:part name="climbBurn" type="xsd:string" />
+    <wsdl:part name="cruiseBurn" type="xsd:string" />
+    <wsdl:part name="descentBurn" type="xsd:string" />
+    <wsdl:part name="profileName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="segmentPlannerResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="bookmarkLoginCodeRequest">
+    <wsdl:part name="terminalId" type="xsd:string" />
+    <wsdl:part name="userId" type="xsd:string" />
+    <wsdl:part name="userPassword" type="xsd:string" />
+    <wsdl:part name="resetCode" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="bookmarkLoginCodeResponse">
+    <wsdl:part name="quickpathText" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="servicesPort">
+    <wsdl:operation name="QuickPath">
+      <wsdl:input message="tns:QuickPathRequest" />
+      <wsdl:output message="tns:QuickPathResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Map">
+      <wsdl:input message="tns:MapRequest" />
+      <wsdl:output message="tns:MapResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="MapSet">
+      <wsdl:input message="tns:MapSetRequest" />
+      <wsdl:output message="tns:MapSetResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="extDecode">
+      <wsdl:input message="tns:extDecodeRequest" />
+      <wsdl:output message="tns:extDecodeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="extEncode">
+      <wsdl:input message="tns:extEncodeRequest" />
+      <wsdl:output message="tns:extEncodeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="faaContractionsLookup">
+      <wsdl:input message="tns:faaContractionsLookupRequest" />
+      <wsdl:output message="tns:faaContractionsLookupResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="closeVFR">
+      <wsdl:input message="tns:closeVFRRequest" />
+      <wsdl:output message="tns:closeVFRResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fileFAA">
+      <wsdl:input message="tns:fileFAARequest" />
+      <wsdl:output message="tns:fileFAAResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fileICAO">
+      <wsdl:input message="tns:fileICAORequest" />
+      <wsdl:output message="tns:fileICAOResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fileICAO2012">
+      <wsdl:input message="tns:fileICAO2012Request" />
+      <wsdl:output message="tns:fileICAO2012Response" />
+    </wsdl:operation>
+    <wsdl:operation name="wxStdLo">
+      <wsdl:input message="tns:wxStdLoRequest" />
+      <wsdl:output message="tns:wxStdLoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wxStdHi">
+      <wsdl:input message="tns:wxStdHiRequest" />
+      <wsdl:output message="tns:wxStdHiResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wxStdArea">
+      <wsdl:input message="tns:wxStdAreaRequest" />
+      <wsdl:output message="tns:wxStdAreaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wxOutRoute">
+      <wsdl:input message="tns:wxOutRouteRequest" />
+      <wsdl:output message="tns:wxOutRouteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wxOutArea">
+      <wsdl:input message="tns:wxOutAreaRequest" />
+      <wsdl:output message="tns:wxOutAreaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wxAbbrvRoute">
+      <wsdl:input message="tns:wxAbbrvRouteRequest" />
+      <wsdl:output message="tns:wxAbbrvRouteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wxAbbrvLocation">
+      <wsdl:input message="tns:wxAbbrvLocationRequest" />
+      <wsdl:output message="tns:wxAbbrvLocationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wxAbbrvRadius">
+      <wsdl:input message="tns:wxAbbrvRadiusRequest" />
+      <wsdl:output message="tns:wxAbbrvRadiusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wxAbbrvStCol">
+      <wsdl:input message="tns:wxAbbrvStColRequest" />
+      <wsdl:output message="tns:wxAbbrvStColResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="hourlyPlanner">
+      <wsdl:input message="tns:hourlyPlannerRequest" />
+      <wsdl:output message="tns:hourlyPlannerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="segmentPlanner">
+      <wsdl:input message="tns:segmentPlannerRequest" />
+      <wsdl:output message="tns:segmentPlannerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="bookmarkLoginCode">
+      <wsdl:input message="tns:bookmarkLoginCodeRequest" />
+      <wsdl:output message="tns:bookmarkLoginCodeResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="servicesBinding" type="tns:servicesPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="QuickPath">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#QuickPath" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Map">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#Map" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MapSet">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#MapSet" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="extDecode">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#extDecode" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="extEncode">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#extEncode" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="faaContractionsLookup">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#faaContractionsLookup" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeVFR">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#closeVFR" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fileFAA">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#fileFAA" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fileICAO">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#fileICAO" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fileICAO2012">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#fileICAO2012" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wxStdLo">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#wxStdLo" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wxStdHi">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#wxStdHi" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wxStdArea">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#wxStdArea" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wxOutRoute">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#wxOutRoute" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wxOutArea">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#wxOutArea" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wxAbbrvRoute">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#wxAbbrvRoute" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wxAbbrvLocation">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#wxAbbrvLocation" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wxAbbrvRadius">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#wxAbbrvRadius" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wxAbbrvStCol">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#wxAbbrvStCol" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hourlyPlanner">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#hourlyPlanner" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="segmentPlanner">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#segmentPlanner" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bookmarkLoginCode">
+      <soap:operation soapAction="http://schemas.xmlsoap.org/soap/envelope/#services#bookmarkLoginCode" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://schemas.xmlsoap.org/soap/envelope/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="servicesService">
+    <documentation />
+    <wsdl:port name="servicesPort" binding="tns:servicesBinding">
+      <soap:address location="https://duats.com/services.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
